@@ -18,12 +18,14 @@ resource "aws_launch_template" "bitbucket_runner" {
   }
 
   block_device_mappings {
+    device_name = "/dev/xvda"
     ebs {
       volume_type = var.root_volume_type
       volume_size = var.root_volume_size
       encrypted   = var.root_volume_encrypted
       iops        = var.root_volume_iops
       throughput  = var.root_volume_throughput
+      delete_on_termination = var.root_volume_delete_on_termination
     }
   }
 

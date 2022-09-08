@@ -69,3 +69,7 @@ variable "root_volume_type" {
 variable "root_volume_throughput" {
   default = 125
 }
+
+variable "root_volume_delete_on_termination" {
+  default = true
+}
