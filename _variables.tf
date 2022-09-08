@@ -5,7 +5,6 @@ variable "vpc_id" {
 
 variable "subnet_ids" {
   description = "List of subnets used for hosting the runner."
-  type        = list(string)
 }
 
 variable "instance_types" {
@@ -33,10 +32,12 @@ variable "runner_root_block_device" {
 }
 
 variable "on_demand_base_capacity" {
+  description = "Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances"
   default = 0
 }
 
 variable "on_demand_percentage" {
+  description = "Percentage split between on-demand and Spot instances above the base on-demand capacity"
   default = 0
 }
 
@@ -51,25 +52,31 @@ variable "architecture" {
 }
 
 variable "root_volume_encrypted" {
+  description = "Enables EBS encryption on the volume"
   default = true
 }
 
 variable "root_volume_iops" {
+  description = "The amount of provisioned IOPS"
   default = 3000
 }
 
 variable "root_volume_size" {
+  description = "The size of the volume in gigabytes"
   default = 100
 }
 
 variable "root_volume_type" {
+  description = "The volume type. Can be standard, gp2, gp3, io1, io2, sc1 or st1"
   default = "gp3"
 }
 
 variable "root_volume_throughput" {
+  description = "The throughput to provision for a gp3 volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s"
   default = 125
 }
 
 variable "root_volume_delete_on_termination" {
+  description = "Whether the volume should be destroyed on instance termination"
   default = true
 }
