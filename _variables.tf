@@ -49,3 +49,23 @@ variable "architecture" {
   default     = "x86_64"
   description = "Architecture to select the AMI, x86_64 or arm64"
 }
+
+variable "root_volume_encrypted" {
+  default = true
+}
+
+variable "root_volume_iops" {
+  default = 3000
+}
+
+variable "root_volume_size" {
+  default = 100
+}
+
+variable "root_volume_type" {
+  default = "gp3"
+}
+
+variable "root_volume_throughput" {
+  default = 125
+}
